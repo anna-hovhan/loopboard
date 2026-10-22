@@ -81,15 +81,32 @@ Claude also picks the skills up from plain requests, such as "pull last week's #
 
 Requirements: Claude Code and Node.js 18 or later. The server is bundled into `dist/server.js`, so it needs no `npm install` to run.
 
+Install it from GitHub in a terminal:
+
 ```bash
-claude plugin marketplace add ~/Desktop/loopboard
+claude plugin marketplace add anna-hovhan/loopboard
 claude plugin install loopboard@loopboard
 ```
 
-Or run it for one session without installing:
+`claude plugin marketplace update loopboard` picks up later versions.
+
+### Where it runs
+
+| Where | Works? |
+| :- | :- |
+| Claude Code in a terminal | Yes |
+| Claude Desktop, **Code** tab | Yes. The Code tab is Claude Code, so it loads plugins installed with the commands above |
+| Claude Desktop **Chat**, or claude.ai | No. There a plugin brings only its skills, so the MCP server never starts and the skills have no tools to call |
+
+Loopboard's tools come from a local process, its MCP server, that Claude starts with Node on your machine. Only Claude Code starts a plugin's local servers, which is why Chat can't run it.
+
+### From a local copy
+
+To try changes without installing, clone the repo and run it for one session:
 
 ```bash
-claude --plugin-dir ~/Desktop/loopboard
+git clone https://github.com/anna-hovhan/loopboard.git
+claude --plugin-dir ./loopboard
 ```
 
 ## Configuration
