@@ -1,6 +1,6 @@
 {
   "name": "loopboard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "MCP server for the loopboard Claude plugin: gather Slack and Jira conversations into Miro, then export board items to Jira",
   "license": "MIT",
   "private": true,

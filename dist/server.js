@@ -37350,7 +37350,7 @@ function mapIssuesToCards(frameLabel, issues) {
   const frameSize = calculateFrameSize(issuesToProcess.length, COLUMNS2, CARD_WIDTH, CARD_HEIGHT);
   const cards = issuesToProcess.map((issue2, i) => ({
     type: "card",
-    title: truncate(`${issue2.key}: ${issue2.summary}`, 250),
+    title: escapeHtml(truncate(`${issue2.key}: ${issue2.summary}`, 250)),
     content: describeIssue(issue2),
     position: positions[i]
   }));
@@ -37400,7 +37400,7 @@ function mapSynthesisToItems(frameTitle, items, columns = 4) {
     if (item.kind === "card") {
       return {
         type: "card",
-        title: truncate(item.title, 250),
+        title: escapeHtml(truncate(item.title, 250)),
         content: toParagraphs(truncate(item.body || "", 2e3)),
         position: positions[i]
       };
@@ -37496,7 +37496,7 @@ function singleLine(text) {
 }
 
 // src/server.ts
-var server = new McpServer({ name: "loopboard", version: "0.1.0" });
+var server = new McpServer({ name: "loopboard", version: "0.1.1" });
 async function respond(work) {
   try {
     const result = await work();

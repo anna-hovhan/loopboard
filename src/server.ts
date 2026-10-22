@@ -12,7 +12,7 @@ import { mapFrameItemsToIssues } from './lib/mappers/frame-to-issues';
 import { stripHtml } from './utils/text';
 import { MIRO_STICKY_COLORS } from './utils/color';
 
-const server = new McpServer({ name: 'loopboard', version: '0.1.0' });
+const server = new McpServer({ name: 'loopboard', version: '0.1.1' });
 
 type ToolResult = { content: Array<{ type: 'text'; text: string }>; isError?: boolean };
 
