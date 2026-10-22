@@ -8,6 +8,26 @@ A Claude Code plugin that closes the loop between conversation and work:
 
 Loopboard grew out of the Miro Sync sidebar app. The React panel and the Next.js OAuth routes are gone. The Slack and Miro clients, the mappers, and the layout and colour logic now run as an MCP server bundled with the plugin. Jira replaces Google Drive as both a source and the export target.
 
+## A custom MCP server
+
+Loopboard's tools come from its own MCP server, written for this plugin. It is not the official Slack, Miro or Atlassian MCP server, and it doesn't call them or the claude.ai connectors.
+
+- **How it runs.** When the plugin is enabled, `.mcp.json` starts `dist/server.js` with Node as a local stdio process. Nothing is hosted: the server runs on your machine, for your Claude Code session only.
+- **How it connects.** It calls the Slack Web API, the Miro REST API v2 and the Jira Cloud REST API directly over HTTPS, using the tokens from the plugin's options. That is why it needs its own tokens instead of a browser sign-in: a local process can't borrow another connector's OAuth session.
+- **What it stores.** Nothing. It has no database or cache. The only state is on the board itself: the issue key written onto an exported item.
+
+### What it does
+
+The skills decide what to gather and write the synthesis. The server does the parts that should come out the same every time:
+
+- **Fetches and cleans up the sources.** It pages through Slack history, thread replies and Jira search results, resolves user IDs to names, and turns Slack markup and Jira's Atlassian Document Format into plain text. It reports when a result was cut short.
+- **Lays out the board.** It works out grid positions, places each new frame to the right of the existing ones, and gives each Slack author a consistent sticky colour. Imports only add frames. They never move, edit or delete what is already on the board.
+- **Maps the board back to issues.** It reads a frame top to bottom, then left to right, turns cards and stickies into issue drafts, and skips any item that already starts with an issue key.
+- **Creates issues safely.** The export is a dry run unless told otherwise. It converts descriptions to Atlassian Document Format, creates the issues, then writes each new key onto its board item (`KEY: title`) so a second export doesn't create duplicates.
+- **Respects rate limits.** Requests are sequential and back off on 429 and 5xx responses, following `Retry-After`.
+
+It has no model of its own and makes no decisions about content. Themes, decisions, open questions and proposed tickets come from Claude, following the `gather` skill.
+
 ## Structure
 
 ```
