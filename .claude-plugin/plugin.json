@@ -1,7 +1,7 @@
 {
   "name": "loopboard",
   "displayName": "Loopboard",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Close the loop between conversation and work: gather Slack discussions and Jira issues onto a Miro board, synthesise themes and proposed tickets, then export the board's cards and stickies back to Jira as issues.",
   "author": {
     "name": "Anna Hovhannisyan"
