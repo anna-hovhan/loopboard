@@ -1,0 +1,23 @@
+{
+  "name": "loopboard",
+  "version": "0.1.0",
+  "description": "MCP server for the loopboard Claude plugin: gather Slack and Jira conversations into Miro, then export board items to Jira",
+  "license": "MIT",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "esbuild src/server.ts --bundle --platform=node --target=node18 --format=esm --outfile=dist/server.js --banner:js=\"import { createRequire } from 'module'; const require = createRequire(import.meta.url);\"",
+    "typecheck": "tsc --noEmit",
+    "test": "tsx --test test/*.test.ts"
+  },
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.43",
+    "esbuild": "^0.28.2",
+    "tsx": "^4.23.15",
+    "typescript": "^7.0.2"
+  }
+}

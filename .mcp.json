@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "loopboard": {
+      "command": "node",
+      "args": ["${CLAUDE_PLUGIN_ROOT}/dist/server.js"],
+      "env": {
+        "LOOPBOARD_SLACK_TOKEN": "${user_config.slack_token}",
+        "LOOPBOARD_MIRO_TOKEN": "${user_config.miro_token}",
+        "LOOPBOARD_JIRA_BASE_URL": "${user_config.jira_site_url}",
+        "LOOPBOARD_JIRA_EMAIL": "${user_config.jira_email}",
+        "LOOPBOARD_JIRA_API_TOKEN": "${user_config.jira_api_token}"
+      }
+    }
+  }
+}

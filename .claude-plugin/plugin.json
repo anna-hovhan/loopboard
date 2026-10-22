@@ -1,0 +1,50 @@
+{
+  "name": "loopboard",
+  "displayName": "Loopboard",
+  "version": "0.1.0",
+  "description": "Close the loop between conversation and work: gather Slack discussions and Jira issues onto a Miro board, synthesise themes and proposed tickets, then export the board's cards and stickies back to Jira as issues.",
+  "author": {
+    "name": "Anna Hovhannisyan"
+  },
+  "license": "MIT",
+  "icon": "./.claude-plugin/icon.png",
+  "keywords": [
+    "slack",
+    "jira",
+    "miro",
+    "triage",
+    "retro",
+    "planning",
+    "mcp"
+  ],
+  "userConfig": {
+    "slack_token": {
+      "type": "string",
+      "title": "Slack token",
+      "description": "Slack user (xoxp-) or bot (xoxb-) token with channels:read, channels:history and users:read. Add groups:read and groups:history for private channels.",
+      "sensitive": true
+    },
+    "miro_token": {
+      "type": "string",
+      "title": "Miro access token",
+      "description": "OAuth access token from a Miro developer app with boards:read and boards:write.",
+      "sensitive": true
+    },
+    "jira_site_url": {
+      "type": "string",
+      "title": "Jira site URL",
+      "description": "Your Jira Cloud site, e.g. https://your-company.atlassian.net"
+    },
+    "jira_email": {
+      "type": "string",
+      "title": "Jira account email",
+      "description": "The Atlassian account email the API token belongs to."
+    },
+    "jira_api_token": {
+      "type": "string",
+      "title": "Jira API token",
+      "description": "Create one at https://id.atlassian.com/manage-profile/security/api-tokens",
+      "sensitive": true
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "loopboard",
+  "description": "Marketplace for the loopboard plugin",
+  "owner": {
+    "name": "Anna Hovhannisyan"
+  },
+  "plugins": [
+    {
+      "name": "loopboard",
+      "description": "Gather Slack and Jira conversations onto a Miro board, then export board items back to Jira as issues.",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
