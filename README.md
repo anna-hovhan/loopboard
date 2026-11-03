@@ -63,16 +63,19 @@ Claude also picks the skills up from plain requests, such as "pull last week's #
 
 ## MCP tools
 
+The bundled server exposes 12 tools. All of them, `loopboard_status` included, belong to Loopboard's own server. None comes from Slack, Jira, Miro or a claude.ai connector.
+
 | Tool | Reads/writes | Purpose |
 | :- | :- | :- |
-| `loopboard_status` | read | Which credentials are configured, and whether each one works |
+| `loopboard_status` | read | Loopboard's own setup check: which credentials the plugin has, and whether each one works. `/loopboard:setup` uses it |
 | `slack_list_channels` | read | Channels the token can see |
 | `slack_get_messages` | read | A channel's messages for a window, with names resolved and threads optional |
 | `slack_import_to_miro` | write (Miro) | A frame of stickies, one per message |
 | `jira_list_projects` | read | Project keys and their issue types |
 | `jira_search_issues` | read | JQL results with descriptions and comments as plain text |
 | `jira_import_to_miro` | write (Miro) | A frame of cards, one per issue |
-| `miro_list_boards` / `miro_list_frames` | read | Find a board or frame |
+| `miro_list_boards` | read | Find a board |
+| `miro_list_frames` | read | Find a frame on a board |
 | `miro_get_frame_items` | read | A frame's items as plain text, in reading order |
 | `miro_create_frame` | write (Miro) | A frame of cards and stickies from Claude's synthesis |
 | `jira_export_frame` | write (Jira, Miro) | Frame items → Jira issues. It defaults to a dry run |
