@@ -6,7 +6,7 @@ A Claude Code plugin that closes the loop between conversation and work:
 2. **Board**: it lays them out on a Miro board, along with Claude's synthesis: themes, decisions, open questions and proposed tickets.
 3. **Export**: once the team has reviewed and edited the board, it turns the board's cards and stickies into Jira issues.
 
-![Loopboard overview, with example data: Slack messages from #support become stickies on a Miro board, the board gets a synthesis of themes, decisions and questions plus proposed ticket cards for the team to review, and /loopboard:export-to-jira previews the cards, creates Jira issues and writes each issue key back so a second export skips it.](assets/loopboard-overview.webp)
+![Loopboard overview, with example data: Slack messages from #support become stickies on a Miro board, Claude adds a synthesis frame of theme, decision and question stickies and a frame of proposed ticket cards for the team to review, and /loopboard:export-to-jira previews the cards, creates Jira issues and writes each issue key back so a second export skips it.](assets/loopboard-overview.webp)
 
 ## Problem
 Decisions and tickets raised in Slack and Jira threads often never reach a shared board or the backlog.
