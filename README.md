@@ -6,6 +6,12 @@ A Claude Code plugin that closes the loop between conversation and work:
 2. **Board**: it lays them out on a Miro board, along with Claude's synthesis: themes, decisions, open questions and proposed tickets.
 3. **Export**: once the team has reviewed and edited the board, it turns the board's cards and stickies into Jira issues.
 
+## Problem
+Decisions and tickets raised in Slack and Jira threads often never reach a shared board or the backlog.
+
+## Try it
+Install it (see [Installation](#installation)), then run `/loopboard:setup` to test your Slack, Jira and Miro connections. To put last week's messages from a channel onto a board, run `/loopboard:gather #support`.
+
 Loopboard grew out of the Miro Sync sidebar app. The React panel and the Next.js OAuth routes are gone. The Slack and Miro clients, the mappers, and the layout and colour logic now run as an MCP server bundled with the plugin. Jira replaces Google Drive as both a source and the export target.
 
 ## A custom MCP server
