@@ -95,7 +95,7 @@ Requirements: Claude Code and Node.js 18 or later. The server is bundled into `d
 Install it from GitHub in a terminal:
 
 ```bash
-claude plugin marketplace add anna-hovhann/loopboard
+claude plugin marketplace add anna-hovhan/loopboard
 claude plugin install loopboard@loopboard
 ```
 
@@ -116,7 +116,7 @@ Loopboard's tools come from a local process, its MCP server, that Claude starts 
 To try changes without installing, clone the repo and run it for one session:
 
 ```bash
-git clone https://github.com/anna-hovhann/loopboard.git
+git clone https://github.com/anna-hovhan/loopboard.git
 claude --plugin-dir ./loopboard
 ```
 
