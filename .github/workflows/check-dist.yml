@@ -1,0 +1,27 @@
+name: check-dist
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  dist-up-to-date:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test
+      - name: Fail if dist/server.js is stale
+        run: |
+          npm run build
+          if ! git diff --quiet -- dist/server.js; then
+            echo "dist/server.js is out of date. Run 'npm run build' and commit the result."
+            git diff --stat -- dist/server.js
+            exit 1
+          fi
