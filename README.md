@@ -1,3 +1,5 @@
+<p><img src="assets/loopboard-card.svg" width="442" alt="loopboard: a Claude Code plugin that gathers Slack and Jira conversations onto a Miro board, then exports board items back to Jira as issues." /></p>
+
 # Loopboard
 
 A Claude Code plugin that closes the loop between conversation and work:
