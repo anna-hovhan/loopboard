@@ -162,6 +162,10 @@ npm run build       # rebuilds dist/server.js; commit the result
 claude plugin validate .
 ```
 
+## M8ven
+
+[![M8ven Score](https://m8ven.ai/badge/mcp/anna-hovhan-loopboard-ghhwyd?v=b2d9c83bfa17da19c533e0ed742aff9d)](https://m8ven.ai/mcp/anna-hovhan-loopboard-ghhwyd?s=readme)
+
 ## Constraints
 
 - **Miro REST API v2** is used throughout, so it works on every plan. The Enterprise-only board export API is not used.
