@@ -2,7 +2,7 @@
 
 # Loopboard
 
-A Claude Code plugin that closes the loop between conversation and work:
+A Claude Code plugin and a custom MCP server that closes the loop between conversation and work:
 
 1. **Gather**: it pulls recent Slack discussions and Jira issues.
 2. **Board**: it lays them out on a Miro board, along with Claude's synthesis: themes, decisions, open questions and proposed tickets.
